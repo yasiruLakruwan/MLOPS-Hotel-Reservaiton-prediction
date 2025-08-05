@@ -9,6 +9,12 @@ test_file_path = os.path.join('artifacts/raw/test.csv')
 
 config_file_path = 'config/config.yaml'
 
+################### Data Processing ######################
+
+PROCESSED_DIR = "artifacts/processed"
+PROCESSED_DATA_TRAIN_PATH = "artifacts/processed/processed_train.csv"
+PROCESSED_DATA_TEST_PATH = "artifacts/processed/processed_train.csv"
 
 
 
+    

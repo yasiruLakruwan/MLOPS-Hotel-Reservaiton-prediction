@@ -24,7 +24,7 @@ def read_yaml(file_path):
         logger.error("Error while loading the yaml file")
         raise CustomExeption("Falil to read the yaml file",e)
 
-## read the csv file
+# function to read csv files
 
 def read_csv(path):
     try:
@@ -33,3 +33,4 @@ def read_csv(path):
     except Exception as e:
         logger.error("Error happening when reading the csv file {e}")
         raise CustomExeption("CSV reading error",e)
+    
