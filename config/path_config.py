@@ -13,7 +13,7 @@ config_file_path = 'config/config.yaml'
 
 PROCESSED_DIR = "artifacts/processed"
 PROCESSED_DATA_TRAIN_PATH = "artifacts/processed/processed_train.csv"
-PROCESSED_DATA_TEST_PATH = "artifacts/processed/processed_train.csv"
+PROCESSED_DATA_TEST_PATH = "artifacts/processed/processed_test.csv"
 
 
 
