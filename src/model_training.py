@@ -11,6 +11,9 @@ from config.path_config import *
 from config.model_params import *
 from utils.common_functions import read_csv
 
+import mlflow
+import  mlflow.sklearn
+
 logger = get_logger(__name__)
 
 class ModelTraining:
@@ -63,7 +66,7 @@ class ModelTraining:
             )
             logger.info("Starting out model training")
 
-            random_search.fit_(X_train,y_train)
+            random_search.fit(X_train,y_train)
 
             logger.info("Hyperparameter tuning completed. ")
 
@@ -118,14 +121,32 @@ class ModelTraining:
         
     def run(self):
         try:
-            logger.info("Srarting our model pipeline")
+            with mlflow.start_run():
+                logger.info("Srarting our model pipeline")
 
-            X_train,y_train,X_test,y_test = self.load_and_split_data()
-            best_lgbm_model = self.train_lgbm(X_train,y_train)
-            metrics = self.evaluate_model(best_lgbm_model,X_test,y_test)
-            self.save_model(best_lgbm_model)
+                logger.info("Starting our MLFLOW experimentation")
+
+                logger.info("Logging the training and the testing data to MLFLOW")
+                mlflow.log_artifact(self.train_path , artifact_path="datasets")
+                mlflow.log_artifact(self.test_path, artifact_path= "datasets")
+
+                X_train,y_train,X_test,y_test = self.load_and_split_data()
+                best_lgbm_model = self.train_lgbm(X_train,y_train)
+                metrics = self.evaluate_model(best_lgbm_model,X_test,y_test)
+                self.save_model(best_lgbm_model)
+
+                logger.info("Logging model in to MLFLOW")
+                mlflow.log_artifact(self.model_output_path)
+
+                logger.info("Logging Params and Matrics to MLFLOW")
+                mlflow.log_params(best_lgbm_model.get_params())
+                mlflow.log_metrics(metrics)
 
             logger.info("Model training successfully completed")
         except Exception as e:
             logger.error(f"Error happening while combined method running {e}")
-            raise CustomExeption("Failed to train the model.")
+            raise CustomExeption("Failed during model training.",e)
+        
+if __name__ == "__main__":
+    trainer = ModelTraining(PROCESSED_DATA_TRAIN_PATH,PROCESSED_DATA_TEST_PATH,MODEL_OUTPUT_PATH)
+    trainer.run()

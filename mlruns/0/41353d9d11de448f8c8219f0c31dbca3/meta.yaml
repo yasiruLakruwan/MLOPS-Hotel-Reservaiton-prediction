@@ -1,0 +1,14 @@
+artifact_uri: file:///D:/MLOPS-Hotel-Reservaiton-prediction/mlruns/0/41353d9d11de448f8c8219f0c31dbca3/artifacts
+end_time: 1754601182114
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 41353d9d11de448f8c8219f0c31dbca3
+run_name: casual-horse-180
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754601156711
+status: 3
+tags: []
+user_id: YASI
