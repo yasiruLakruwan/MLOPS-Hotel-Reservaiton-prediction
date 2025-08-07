@@ -116,5 +116,16 @@ class ModelTraining:
             logger.error(f"Error hapening saving the model {e}")
             raise CustomExeption("Failed during saving the model",e)
         
-    '''def run(self):
-        logger.info("Srarting our model pipeline")'''
+    def run(self):
+        try:
+            logger.info("Srarting our model pipeline")
+
+            X_train,y_train,X_test,y_test = self.load_and_split_data()
+            best_lgbm_model = self.train_lgbm(X_train,y_train)
+            metrics = self.evaluate_model(best_lgbm_model,X_test,y_test)
+            self.save_model(best_lgbm_model)
+
+            logger.info("Model training successfully completed")
+        except Exception as e:
+            logger.error(f"Error happening while combined method running {e}")
+            raise CustomExeption("Failed to train the model.")
