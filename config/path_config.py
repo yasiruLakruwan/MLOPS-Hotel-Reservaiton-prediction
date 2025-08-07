@@ -15,6 +15,10 @@ PROCESSED_DIR = "artifacts/processed"
 PROCESSED_DATA_TRAIN_PATH = "artifacts/processed/processed_train.csv"
 PROCESSED_DATA_TEST_PATH = "artifacts/processed/processed_test.csv"
 
+############### Model Training ##############
+
+MODEL_OUTPUT_PATH = "artifacts/models/lgbm_model.pkl"
+
 
 
     
