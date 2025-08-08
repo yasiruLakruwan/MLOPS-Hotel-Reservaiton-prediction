@@ -1,0 +1,14 @@
+artifact_uri: file:///D:/MLOPS-Hotel-Reservaiton-prediction/mlruns/0/8a32588e4812414eb58457f37ed1eee6/artifacts
+end_time: 1754666535532
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 8a32588e4812414eb58457f37ed1eee6
+run_name: gentle-trout-172
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754666520084
+status: 3
+tags: []
+user_id: YASI

@@ -5,7 +5,7 @@ import joblib
 import lightgbm as lgb
 from sklearn.model_selection import RandomizedSearchCV
 from sklearn.metrics import accuracy_score,precision_score,recall_score,f1_score
-from logger import get_logger
+from src.logger import get_logger
 from src.custom_exeption import CustomExeption
 from config.path_config import *
 from config.model_params import *
