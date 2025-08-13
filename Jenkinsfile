@@ -5,6 +5,9 @@ pipeline{
         VENV_DIR = 'venv'
         GCP_PROJECT = 'steam-glass-467515-t4'
         GCLOUD_PATH = '/var/jenkins_home/google-cloud-sdk/bin'
+        NO_PROXY = "gcr.io,.gcr.io"
+        DOCKER_CLIENT_TIMEOUT = "300"
+        COMPOSE_HTTP_TIMEOUT = "300"
     }
 
     stages{
